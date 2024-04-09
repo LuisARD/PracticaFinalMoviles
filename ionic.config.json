@@ -1,0 +1,7 @@
+{
+  "name": "ResQTech",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
