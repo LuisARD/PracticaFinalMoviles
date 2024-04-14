@@ -8,7 +8,7 @@
  <ion-list lines="full">
   <ion-item *ngFor="let miembro of miembros">
     <ion-avatar slot="start">
-      <ion-img [src]=""></ion-img>
+      <ion-img [src]="miembro.foto"></ion-img>
     </ion-avatar>
     <ion-label>
       <h2>{{ miembro.nombre }}</h2>

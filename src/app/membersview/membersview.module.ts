@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MembersviewPageRoutingModule } from './membersview-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MembersviewPage } from './membersview.page';
 
@@ -13,7 +14,8 @@ import { MembersviewPage } from './membersview.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MembersviewPageRoutingModule
+    MembersviewPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [MembersviewPage]
 })

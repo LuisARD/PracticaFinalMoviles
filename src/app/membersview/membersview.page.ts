@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-membersview',
@@ -7,27 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MembersviewPage implements OnInit {
 
-  miembros = [
-    {
-      nombre: 'Nombre del miembro 1',
-      cargo: 'Cargo del miembro 1',
-      telefono: '',
-      correo:'',
-      foto: ''
-    },
-    {
-      nombre: 'Nombre del miembro 2',
-      cargo: 'Cargo del miembro 2',
-      telefono: '',
-      correo:'',
-      foto: ''
-    }
-  ];
+  miembros : any;
 
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit() {
+    this.getDataMiembros();
+  }
+
+  getDataMiembros(){
+    const url = 'https://adamix.net/defensa_civil/def/miembros.php';
+    this.http.get<any>(url).subscribe(
+      {
+        next: resp => {
+          this.miembros = resp.datos;
+        },
+        error: err => {
+          console.log(err)
+        }
+      }
+    );
   }
 
 }
