@@ -18,9 +18,11 @@ const routes: Routes = [
       },
       {
         path: 'config',
-        loadChildren: () => import('../configuration/configuration.module').then(m => m.ConfigurationPageModule
-          
-        )
+        loadChildren: () => import('../configuration/configuration.module').then(m => m.ConfigurationPageModule)
+      },
+      {
+        path: 'members',
+        loadChildren: () => import('../membersview/membersview.module').then(m => m.MembersviewPageModule)
       },
       {
         path: '',

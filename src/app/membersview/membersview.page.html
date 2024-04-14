@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Miembros de la Defensa Civil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-list lines="full">
+  <ion-item *ngFor="let miembro of miembros">
+    <ion-avatar slot="start">
+      <ion-img [src]="miembro.foto"></ion-img>
+    </ion-avatar>
+    <ion-label>
+      <h2>{{ miembro.nombre }}</h2>
+      <p>{{ miembro.cargo }}</p>
+      <p>{{ miembro.telefono }}</p>
+      <p>{{ miembro.correo }}</p>
+    </ion-label>
+  </ion-item>
+ </ion-list>
+</ion-content>

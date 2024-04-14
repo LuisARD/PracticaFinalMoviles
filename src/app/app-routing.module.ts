@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'reset-password',
     loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
-  },  {
+  },
+  {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
@@ -37,6 +38,20 @@ const routes: Routes = [
   {
     path: 'configuration',
     loadChildren: () => import('./configuration/configuration.module').then( m => m.ConfigurationPageModule)
+  },
+  {
+    path: 'acercade',
+    loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
+  },
+
+  {
+    path: 'formvolun',
+    loadChildren: () => import('./formvolun/formvolun.module').then( m => m.FormvolunPageModule)
+  },
+
+  {
+    path: 'membersview',
+    loadChildren: () => import('./membersview/membersview.module').then( m => m.MembersviewPageModule)
   },
   {
     path: 'history',
