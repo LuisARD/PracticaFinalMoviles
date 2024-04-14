@@ -8,8 +8,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ServicioPopupComponent {
 
-  servicio: string = '';
-  descripcion: string = '';
+  servicio: any;
 
   constructor(public modalController: ModalController) {}
 
