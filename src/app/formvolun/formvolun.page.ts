@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formvolun',
@@ -11,7 +12,7 @@ export class FormvolunPage implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, public router: Router) {
     this.formulario = this.formBuilder.group({
       cedula: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -22,6 +23,10 @@ export class FormvolunPage implements OnInit {
     });
   }
   ngOnInit() {
+  }
+
+  closeModal(){
+    this.router.navigate(['tabs/menu']);
   }
 
   enviarFormulario() {
@@ -42,6 +47,10 @@ export class FormvolunPage implements OnInit {
         {
           next: resp => {
             console.log(resp)
+
+            if(resp.exito){
+              this.closeModal();
+            }
           },
           error: err => {
             console.log(err)
