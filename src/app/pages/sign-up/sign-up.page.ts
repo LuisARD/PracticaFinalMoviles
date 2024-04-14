@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/app/database.service';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -6,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
+  users = this.database.getUsers();
+  nombre: string = '';
+  clave: string = '';
+  correo: string = '';
 
-  constructor() { }
+  constructor(private database: DatabaseService) { }
 
+  async createUser(){
+    await this.database.addUser(this.nombre, this.clave, this.correo)
+    this.nombre = '';
+    this.clave = '';
+    this.correo = '';
+  }
   ngOnInit() {
   }
 

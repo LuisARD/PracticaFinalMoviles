@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignUpPageRoutingModule } from './sign-up-routing.module';
 
 import { SignUpPage } from './sign-up.page';
+import { DatabaseService } from 'src/app/database.service';
 
 @NgModule({
   imports: [
