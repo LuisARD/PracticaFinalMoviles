@@ -45,6 +45,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'formvolun',
+    loadChildren: () => import('./formvolun/formvolun.module').then( m => m.FormvolunPageModule)
+  },
+
+  {
     path: 'membersview',
     loadChildren: () => import('./membersview/membersview.module').then( m => m.MembersviewPageModule)
   },
