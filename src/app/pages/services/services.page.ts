@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ServicioPopupComponent } from '../../servicio-popup/servicio-popup.component';
 
-
 @Component({
   selector: 'app-services',
   templateUrl: './services.page.html',
@@ -12,6 +11,7 @@ import { ServicioPopupComponent } from '../../servicio-popup/servicio-popup.comp
 export class ServicesPage implements OnInit {
 
   constructor(public modalController: ModalController) { }
+  retroConstructor() {}
 
   async abrirVentanaEmergente(servicio: string, descripcion: string) {
     const modal = await this.modalController.create({
@@ -23,6 +23,10 @@ export class ServicesPage implements OnInit {
       descripcion: descripcion
     }
     return await modal.present();
+  }
+
+  public cerrarVentanaEmergente() {
+    this.modalController.dismiss();
   }
 
   ngOnInit() {
