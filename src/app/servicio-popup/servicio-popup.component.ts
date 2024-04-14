@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ServicesPage } from '../pages/services/services.page';
 
 @Component({
   selector: 'app-servicio-popup',
@@ -12,7 +13,7 @@ export class ServicioPopupComponent {
 
   constructor(public modalController: ModalController) {}
 
-  cerrarVentanaEmergente() {
+  cerrarPopup() {
     this.modalController.dismiss();
   }
 }

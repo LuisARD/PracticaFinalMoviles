@@ -49,6 +49,10 @@ export class ServicesPage implements OnInit {
     return await modal.present();
   }
 
+  public cerrarVentanaEmergente() {
+    this.modalController.dismiss();
+  }
+
   ngOnInit() {
   }
 }

@@ -17,4 +17,4 @@ import { ServicioPopupComponent } from './servicio-popup.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ServicioPopupModule { }
+export class ServicioPopupModule {}
