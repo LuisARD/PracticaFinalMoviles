@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: () => import('src/app/pages/services/services.module').then(m => m.ServicesPageModule)
       },
       {
+        path: 'form',
+        loadChildren: () => import('../formvolun/formvolun.module').then(m => m.FormvolunPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
