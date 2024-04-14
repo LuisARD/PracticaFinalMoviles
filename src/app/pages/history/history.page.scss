@@ -1,9 +1,12 @@
+.img {
+    padding-bottom: 10px;
+}
 
 ion-content{
     padding-top: 25px !important;
 }
 ion-row{
-    height: max-content;
+    height: 100px;
 
     ion-button {
         border-radius: 10px;
