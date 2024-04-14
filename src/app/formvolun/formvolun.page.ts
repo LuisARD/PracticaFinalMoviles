@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formvolun',
@@ -7,32 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormvolunPage implements OnInit {
 
- nombre!: string;
+  formulario: FormGroup;
 
- correo!: string;
-
- telefono!: string;
-
- cedula!:string;
-
- experiencia!: string;
-
- mensajeopcio!: string;
-
-
-  constructor() { }
-
+  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+    this.formulario = this.formBuilder.group({
+      cedula: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      clave: ['', Validators.required],
+      correo: ['', Validators.required],
+      telefono: ['', Validators.required]
+    });
+  }
   ngOnInit() {
   }
 
-  enviarFormulario(){
+  enviarFormulario() {
+    if (this.formulario.valid) {
+      const apiUrl = 'https://adamix.net/defensa_civil/def/registro.php';
+      
+      // Crear un FormData y agregar los campos
+      const formData = new FormData();
+      formData.append('cedula', this.formulario.get('cedula')?.value || '');
+      formData.append('nombre', this.formulario.get('nombre')?.value || '');
+      formData.append('apellido', this.formulario.get('apellido')?.value || '');
+      formData.append('clave', this.formulario.get('clave')?.value || '');
+      formData.append('correo', this.formulario.get('correo')?.value || '');
+      formData.append('telefono', this.formulario.get('telefono')?.value || '');
 
-    console.log('Nombre:', this.nombre);
-    console.log('Correo electronico:', this.correo);
-    console.log('Número de teléfono:', this.telefono);
-    console.log('Cédula:', this.cedula);
-    console.log('Experiencia:', this.experiencia);
-    console.log('Mensaje Opcional:', this.mensajeopcio);
+      const headers = new HttpHeaders();
+      this.http.post<any>(apiUrl, formData, { headers: headers }).subscribe(
+        {
+          next: resp => {
+            console.log(resp)
+          },
+          error: err => {
+            console.log(err)
+          }
+        }
+      );
+    } else {
+      console.error('Formulario inválido');
+      // Aquí puedes manejar el caso donde el formulario no es válido, por ejemplo mostrar un mensaje al usuario
+    }
   }
 
 }

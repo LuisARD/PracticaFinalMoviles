@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
 
 import { FormvolunPageRoutingModule } from './formvolun-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormvolunPage } from './formvolun.page';
 
@@ -13,7 +14,9 @@ import { FormvolunPage } from './formvolun.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FormvolunPageRoutingModule
+    FormvolunPageRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [FormvolunPage]
 })
