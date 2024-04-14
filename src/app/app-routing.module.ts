@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'configuration',
     loadChildren: () => import('./configuration/configuration.module').then( m => m.ConfigurationPageModule)
   },
+  {
+    path: 'acercade',
+    loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
+  },
 
   {
     path: 'formvolun',
