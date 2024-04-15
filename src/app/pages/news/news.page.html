@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button [routerLink]="['/tabs/menu']">
+      <ion-icon name="arrow-undo-outline"></ion-icon>
+      Volver Atras
+    </ion-button>
+    <ion-title>Noticias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let noticia of noticias">
+      <img class="card-img" [src]="noticia.foto" alt="{{ noticia.titulo }}">
+      <ion-card-header>
+        <ion-card-title>{{ noticia.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ noticia.fecha }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ noticia.contenido }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

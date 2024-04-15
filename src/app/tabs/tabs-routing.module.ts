@@ -18,9 +18,47 @@ const routes: Routes = [
       },
       {
         path: 'config',
-        loadChildren: () => import('../configuration/configuration.module').then(m => m.ConfigurationPageModule
-          
-        )
+        loadChildren: () => import('../configuration/configuration.module').then(m => m.ConfigurationPageModule)
+      },
+      {
+        path: 'members',
+        loadChildren: () => import('../membersview/membersview.module').then(m => m.MembersviewPageModule)
+      },
+      {
+        path: 'history',
+        loadChildren: () => import('src/app/pages/history/history.module').then(m => m.HistoryPageModule)
+      },
+      {
+        path: 'services',
+        loadChildren: () => import('src/app/pages/services/services.module').then(m => m.ServicesPageModule)
+      },
+      {
+        path: 'form',
+        loadChildren: () => import('../formvolun/formvolun.module').then(m => m.FormvolunPageModule)
+      },
+      {
+        path: 'news',
+        loadChildren: () => import('src/app/pages/news/news.module').then(m => m.NewsPageModule)
+      },
+      {
+        path: 'acercade',
+        loadChildren: () => import('../acercade/acercade.module').then(m => m.AcercadePageModule)
+      },
+      {
+        path: 'videos',
+        loadChildren: () => import('../videos/videos.module').then( m => m.VideosPageModule)
+      },
+      {
+        path: 'albergues',
+        loadChildren: () => import('../albergues/albergues.module').then( m => m.AlberguesPageModule)
+      },
+      {
+        path: 'alberguesMap',
+        loadChildren: () => import('../albergues-map/albergues-map.module').then( m => m.AlberguesMapPageModule)
+      },
+      {
+        path: 'medidas',
+        loadChildren: () => import('../medidas/medidas.module').then( m => m.MedidasPageModule)
       },
       {
         path: '',

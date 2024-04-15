@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button [routerLink]="['/tabs/menu']">
+      <ion-icon name="arrow-undo-outline"></ion-icon>
+      Volver Atras
+    </ion-button>
+    <ion-title>Nuestros Servicios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row  class="centered-items">
+      <!-- Item 1 - Primeros Auxilios -->
+      <ion-col size="6" class="ion-text-center ion-align-items-center" (click)="abrirVentanaEmergente('3')">
+        <ion-card>
+          <ion-card-header>
+            <ion-icon name="medkit" class="custom-icon"></ion-icon>
+            <ion-card-title>Atención Prehospitalaria</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      
+      <!-- Item 2 - Baywatch -->
+      <ion-col size="6" class="ion-text-center ion-align-items-center" (click)="abrirVentanaEmergente('2')">
+        <ion-card>
+          <ion-card-header>
+            <ion-icon name="boat" class="custom-icon"></ion-icon>
+            <ion-card-title>Salvamento Acuático</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+    <ion-row  class="centered-items">
+
+      <!-- Item 4 - Baywatch -->
+      <ion-col size="6" class="ion-text-center ion-align-items-center" (click)="abrirVentanaEmergente('1')">
+        <ion-card>
+          <ion-card-header>
+            <ion-icon name="car-sport" class="custom-icon"></ion-icon>
+            <ion-card-title>Extracción Vehicular</ion-card-title>
+          </ion-card-header>  
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+

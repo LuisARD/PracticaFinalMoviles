@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'reset-password',
     loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
-  },  {
+  },
+  {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
@@ -47,6 +48,39 @@ const routes: Routes = [
     loadChildren: () => import('./noticias-especificas/noticias-especificas.module').then( m => m.NoticiasEspecificasPageModule)
   },
 
+  {
+    path: 'formvolun',
+    loadChildren: () => import('./formvolun/formvolun.module').then( m => m.FormvolunPageModule)
+  },
+
+  {
+    path: 'membersview',
+    loadChildren: () => import('./membersview/membersview.module').then( m => m.MembersviewPageModule)
+  },
+  {
+    path: 'history',
+    loadChildren: () => import('./pages/history/history.module').then( m => m.HistoryPageModule)
+  },
+  {
+    path: 'services',
+    loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
+  },
+  {
+    path: 'videos',
+    loadChildren: () => import('./videos/videos.module').then( m => m.VideosPageModule)
+  },
+  {
+    path: 'albergues',
+    loadChildren: () => import('./albergues/albergues.module').then( m => m.AlberguesPageModule)
+  },
+  {
+    path: 'alberguesMap',
+    loadChildren: () => import('./albergues-map/albergues-map.module').then( m => m.AlberguesMapPageModule)
+  },
+  {
+    path: 'medidas',
+    loadChildren: () => import('./medidas/medidas.module').then( m => m.MedidasPageModule)
+  }
 ];
 
 @NgModule({

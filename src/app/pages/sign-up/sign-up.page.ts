@@ -15,7 +15,6 @@ export class SignUpPage implements OnInit {
   telefono: string = '';
 
   constructor(private apiService: ApiService) { }
-
   Clickear(){
     this.apiService.signup(this.cedula, this.nombre, this.apellido, this.clave, this.correo, this.telefono).subscribe(
       (response) => {
@@ -33,7 +32,6 @@ export class SignUpPage implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

@@ -1,0 +1,17 @@
+.card-img{
+    width: 100%;
+}
+ion-toolbar ion-button {
+    margin-start: 8px; /* Espacio a la izquierda del botón (ajústalo según sea necesario) */
+    --padding-start: 6px; /* Espacio interno a la izquierda del botón */
+    --padding-end: 6px; /* Espacio interno a la derecha del botón */
+    --border-radius: 0; /* Eliminar el redondeo de las esquinas del botón si es necesario */
+    --background: transparent; /* Fondo transparente para el botón */
+    --color: var(--ion-color-primary); /* Color del texto del botón (puedes ajustarlo según tu tema) */
+    --box-shadow: none; /* Eliminar sombra del botón si es necesario */
+  }
+  
+  /* Estilo específico para el botón cuando está en estado activo (pulsado) */
+  ion-toolbar ion-button:active {
+    --opacity: 0.8; /* Reducir la opacidad del botón al presionarlo */
+  }
