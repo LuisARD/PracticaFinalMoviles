@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { NewsPageRoutingModule } from './news-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NewsPage } from './news.page';
 
@@ -13,7 +14,7 @@ import { NewsPage } from './news.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    NewsPageRoutingModule
+    NewsPageRoutingModule,HttpClientModule
   ],
   declarations: [NewsPage]
 })
