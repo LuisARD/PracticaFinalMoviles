@@ -60,7 +60,11 @@ const routes: Routes = [
   {
     path: 'services',
     loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
+  },  {
+    path: 'news',
+    loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
   },
+
 
 ];
 
