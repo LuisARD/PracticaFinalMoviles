@@ -11,10 +11,12 @@ import { catchError } from 'rxjs/operators';
 export class ApiService {
   private apiUrl = 'https://adamix.net/defensa_civil/def/iniciar_sesion.php';
   private signUpURL = 'https://adamix.net/defensa_civil/def/registro.php';
-  //private specificNewsUrl = 'https://adamix.net/defensa_civil/def/noticias_especificas.php';
+  private specificNewsUrl = 'https://adamix.net/defensa_civil/def/noticias_especificas.php';
   private tokenDataSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private http: HttpClient) {}
+  token!: string;
+  constructor(private http: HttpClient) {
+  }
 
   login(cedula: string, clave: string): Observable<any> {
     const formData = new FormData();
@@ -27,8 +29,8 @@ export class ApiService {
         
         if (response && response.exito && response.exito === true && response.datos) {
           const tokenData = response.datos;
-          console.log('Datos recibidos de la API:', tokenData);
-          this.tokenDataSubject.next(tokenData);
+          this.token = tokenData.token;
+          localStorage.setItem('token', tokenData.token);
         } else {
           console.log('La respuesta de la API no incluye datos válidos.');
         }
@@ -36,28 +38,38 @@ export class ApiService {
     );
   }
 
-  getTokenData(): Observable<any> {
-    return this.tokenDataSubject.asObservable();
-  }
+  getNoticiasEspecificas() {
+    const formData = new FormData();
+    this.token = this.getToken() ?? '';
+    formData.append('token', this.token);
 
-  getNoticiasEspecificas(): Observable<any> {
-    return this.getTokenData().pipe(
-      tap((tokenData) => {
-        if (tokenData && tokenData.token) {
-          const token = tokenData.token; // Obtener solo el valor de token
-          const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-          // Crear formData para enviar datos adicionales si es necesario
-          const formData = new FormData();
-          formData.append('parametro1', 'valor1');
-          formData.append('parametro2', 'valor2');
-
-          return this.http.post('https://adamix.net/defensa_civil/def/noticias_especificas.php', formData, { headers });
+    return this.http.post(this.specificNewsUrl, formData).pipe(
+      tap((response: any) => {
+        console.log('Respuesta de la API:', response);
+        
+        if (response && response.exito && response.exito === true && response.datos) {
+          const noticias = response.datos;
         } else {
-          throw new Error('Token no disponible');
+          console.log('La respuesta de la API no incluye datos válidos.');
         }
       })
     );
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  clearToken() {
+    localStorage.removeItem('token');
+  }
+
+  hasToken(){
+    if(this.token !== '' && this.token !== undefined){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   signup(cedula: string, nombre: string, apellido: string, clave: string, correo: string, telefono: string) {

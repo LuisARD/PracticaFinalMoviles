@@ -16,4 +16,8 @@ export class ConfigurationPage implements OnInit {
   acercade(){
     this.router.navigate(['./tabs/acercade']);
   }
+
+  login(){
+    this.router.navigate(['./login']);
+  }
 }

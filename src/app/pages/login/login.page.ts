@@ -10,27 +10,27 @@ import { ApiService } from 'src/app/api.service';
 export class LoginPage implements OnInit {
   cedula: string = '';
   clave: string = '';
+  error: string = '';
+  hastoken: boolean = false;
 
   constructor(private apiService: ApiService, private router: Router) { }
 
-  Clickear() {
+  login() {
     this.apiService.login(this.cedula, this.clave).subscribe(
       (response) => {
-        console.log('Respuesta de la API:', response);
 
-        this.apiService.getTokenData().subscribe(
-          (tokenData) => {
-            console.log('Datos obtenidos:', tokenData);
-            // Aquí puedes usar tokenData como objeto completo de datos según tus necesidades
+        if(response.exito){
+          // Redirigir a la página de noticias específicas u otra página después de obtener los datos
+          this.router.navigate(['../tabs/menu'], { replaceUrl: true });
+          //this.router.navigate(['../tabs/noticiasEsp']);
 
-            // Redirigir a la página de noticias específicas u otra página después de obtener los datos
-            this.router.navigate(['/noticias-especificas']); // Ajusta la ruta según tu configuración
-
-            // Limpia los campos de cedula y clave después del inicio de sesión
-            this.cedula = '';
-            this.clave = '';
-          }
-        );
+          // Limpia los campos de cedula y clave después del inicio de sesión
+          this.cedula = '';
+          this.clave = '';
+        }else{
+          this.error = response.mensaje;
+        }
+          
       },
       (error) => {
         console.error('Error al llamar a la API:', error);
@@ -39,6 +39,8 @@ export class LoginPage implements OnInit {
   }
   
   ngOnInit() {
-    // Código de inicialización si es necesario
+    if(this.apiService.hasToken()){
+      this.hastoken = true;
+    }
   }
 }
