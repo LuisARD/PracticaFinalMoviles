@@ -9,8 +9,7 @@ import { ServicesPage } from '../pages/services/services.page';
 })
 export class ServicioPopupComponent {
 
-  servicio: string = '';
-  descripcion: string = '';
+  servicio: any;
 
   constructor(public modalController: ModalController) {}
 

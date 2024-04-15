@@ -6,14 +6,15 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let noticia of noticias">
-      <ion-thumbnail slot="start">
-        <img [src]="noticia.imagenUrl" alt="Imagen de la noticia">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ noticia.titulo }}</h2>
-        <p>{{ noticia.descripcion }}</p>
-      </ion-label>
-    </ion-item>
+    <ion-card *ngFor="let noticia of noticias">
+      <img class="card-img" [src]="noticia.foto" alt="{{ noticia.titulo }}">
+      <ion-card-header>
+        <ion-card-title>{{ noticia.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ noticia.fecha }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ noticia.contenido }}</p>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

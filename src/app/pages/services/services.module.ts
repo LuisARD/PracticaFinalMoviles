@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ServicesPageRoutingModule } from './services-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ServicesPage } from './services.page';
 
@@ -13,7 +14,8 @@ import { ServicesPage } from './services.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ServicesPageRoutingModule
+    ServicesPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [ServicesPage]
 })

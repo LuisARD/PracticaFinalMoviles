@@ -25,6 +25,22 @@ const routes: Routes = [
         loadChildren: () => import('../membersview/membersview.module').then(m => m.MembersviewPageModule)
       },
       {
+        path: 'history',
+        loadChildren: () => import('src/app/pages/history/history.module').then(m => m.HistoryPageModule)
+      },
+      {
+        path: 'services',
+        loadChildren: () => import('src/app/pages/services/services.module').then(m => m.ServicesPageModule)
+      },
+      {
+        path: 'news',
+        loadChildren: () => import('src/app/pages/news/news.module').then(m => m.NewsPageModule)
+      },
+      {
+        path: 'acercade',
+        loadChildren: () => import('../acercade/acercade.module').then(m => m.AcercadePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
