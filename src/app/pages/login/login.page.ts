@@ -10,28 +10,27 @@ import { ApiService } from 'src/app/api.service';
 export class LoginPage implements OnInit {
   cedula: string = '';
   clave: string = '';
+  error: string = '';
+  hastoken: boolean = false;
 
   constructor(private apiService: ApiService, private router: Router) { }
 
-  Clickear() {
+  login() {
     this.apiService.login(this.cedula, this.clave).subscribe(
       (response) => {
-        console.log('Respuesta de la API:', response);
 
-        if (response && response.exito && response.exito === true && response.datos) {
-          console.log('Inicio de sesión exitoso.');
+        if(response.exito){
+          // Redirigir a la página de noticias específicas u otra página después de obtener los datos
+          this.router.navigate(['../tabs/menu'], { replaceUrl: true });
+          //this.router.navigate(['../tabs/noticiasEsp']);
 
-          this.apiService.getTokenData().subscribe(
-            (tokenData) => {
-              console.log('Datos obtenidos:', tokenData);
-              this.router.navigate(['/tabs']);
-              this.cedula = '';
-              this.clave = '';
-            }
-          );
-        } else {
-          console.log('Inicio de sesión fallido: Datos incorrectos o no válidos.');
+          // Limpia los campos de cedula y clave después del inicio de sesión
+          this.cedula = '';
+          this.clave = '';
+        }else{
+          this.error = response.mensaje;
         }
+          
       },
       (error) => {
         console.error('Error al llamar a la API:', error);
@@ -39,5 +38,9 @@ export class LoginPage implements OnInit {
     );
   }
   
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.apiService.hasToken()){
+      this.hastoken = true;
+    }
+  }
 }

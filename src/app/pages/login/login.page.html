@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content *ngIf="!hastoken" [fullscreen]="true">
   <div class="header">
     <ion-title class="title">Bienvenido/a de vuelta!</ion-title>
     <ion-img src="assets/prevencion_desastres.jpg"></ion-img>
@@ -15,12 +15,28 @@
         <ion-input placeholder="Contraseña" type="password" class="input" name="clave" [(ngModel)]="clave"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
-      <ion-item>
-        <ion-button (click)="Clickear()">Log In</ion-button>
-      </ion-item>
+      <!--ERROR-->
+      <p *ngIf="error !== ''" class="error">{{error}}</p>
+      
+      <div class="forgotPassword">
+        <a [routerLink]="['/reset-password']" style="color:#FFC33F">¿Olvidaste tu contraseña?</a>
+      </div>
       <div class="signupLink">
         <p>¿Aun no eres miembro? <a style="color:#FFC33F" [routerLink]="['/sign-up']">Registrate ahora!</a></p>
       </div>
+      <ion-button expand="block" (click)="login()">Iniciar sesión</ion-button>
+      <ion-button expand="block" fill="outline" [routerLink]="['../tabs/home']">Seguir sin inicio de sesión</ion-button>
+
     </div>
   </form>
+</ion-content>
+
+<ion-content *ngIf="hastoken">
+  <h3 class="loged">Ya ha iniciado sesión</h3>
+  
+  <ion-fab vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
+    <ion-fab-button [routerLink]="['../tabs/home']">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 
-
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',

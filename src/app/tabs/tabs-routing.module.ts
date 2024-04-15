@@ -61,6 +61,10 @@ const routes: Routes = [
         loadChildren: () => import('../medidas/medidas.module').then( m => m.MedidasPageModule)
       },
       {
+        path: 'noticiasEsp',
+        loadChildren: () => import('../noticias-especificas/noticias-especificas.module').then( m => m.NoticiasEspecificasPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
