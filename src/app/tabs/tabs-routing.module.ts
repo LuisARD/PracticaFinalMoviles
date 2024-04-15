@@ -37,6 +37,14 @@ const routes: Routes = [
         loadChildren: () => import('../formvolun/formvolun.module').then(m => m.FormvolunPageModule)
       },
       {
+        path: 'news',
+        loadChildren: () => import('src/app/pages/news/news.module').then(m => m.NewsPageModule)
+      },
+      {
+        path: 'acercade',
+        loadChildren: () => import('../acercade/acercade.module').then(m => m.AcercadePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
