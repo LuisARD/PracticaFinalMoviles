@@ -18,16 +18,19 @@ export class LoginPage implements OnInit {
       (response) => {
         console.log('Respuesta de la API:', response);
 
-        this.apiService.getToken().subscribe(
-          (token) => {
-            console.log('Token obtenido:', token);
-            // Redirigir a la página de noticias específicas después de obtener el token
+        this.apiService.getTokenData().subscribe(
+          (tokenData) => {
+            console.log('Datos obtenidos:', tokenData);
+            // Aquí puedes usar tokenData como objeto completo de datos según tus necesidades
+
+            // Redirigir a la página de noticias específicas u otra página después de obtener los datos
             this.router.navigate(['/noticias-especificas']); // Ajusta la ruta según tu configuración
+
+            // Limpia los campos de cedula y clave después del inicio de sesión
+            this.cedula = '';
+            this.clave = '';
           }
         );
-
-        this.cedula = '';
-        this.clave = '';
       },
       (error) => {
         console.error('Error al llamar a la API:', error);
