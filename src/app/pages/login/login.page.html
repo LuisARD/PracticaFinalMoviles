@@ -8,16 +8,16 @@
   <form>
     <div class="ion-padding">
       <ion-item>
-        <ion-input placeholder="Usuario" class="input"></ion-input>
+        <ion-input placeholder="Cedula" class="input" name="cedula" [(ngModel)]="cedula"></ion-input>
         <ion-icon name="person-outline"></ion-icon>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Contraseña" type="password" class="input"></ion-input>
+        <ion-input placeholder="Contraseña" type="password" class="input" name="clave" [(ngModel)]="clave"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
-      <div class="forgotPassword">
-        <a [routerLink]="['/reset-password']" style="color:#FFC33F">¿Olvidaste tu contraseña?</a>
-      </div>
+      <ion-item>
+        <ion-button (click)="Clickear()">Log In</ion-button>
+      </ion-item>
       <div class="signupLink">
         <p>¿Aun no eres miembro? <a style="color:#FFC33F" [routerLink]="['/sign-up']">Registrate ahora!</a></p>
       </div>
