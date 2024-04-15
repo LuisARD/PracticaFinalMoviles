@@ -45,6 +45,22 @@ const routes: Routes = [
         loadChildren: () => import('../acercade/acercade.module').then(m => m.AcercadePageModule)
       },
       {
+        path: 'videos',
+        loadChildren: () => import('../videos/videos.module').then( m => m.VideosPageModule)
+      },
+      {
+        path: 'albergues',
+        loadChildren: () => import('../albergues/albergues.module').then( m => m.AlberguesPageModule)
+      },
+      {
+        path: 'alberguesMap',
+        loadChildren: () => import('../albergues-map/albergues-map.module').then( m => m.AlberguesMapPageModule)
+      },
+      {
+        path: 'medidas',
+        loadChildren: () => import('../medidas/medidas.module').then( m => m.MedidasPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
