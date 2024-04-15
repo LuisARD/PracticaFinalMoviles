@@ -15,6 +15,9 @@
         <ion-input placeholder="Contraseña" type="password" class="input"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
+      <div class="ing-button">
+        <ion-button [routerLink]="['/tabs/home']" style="color:#FFC33F">ingresar</ion-button>
+      </div>
       <div class="forgotPassword">
         <a [routerLink]="['/reset-password']" style="color:#FFC33F">¿Olvidaste tu contraseña?</a>
       </div>
@@ -25,7 +28,7 @@
   </form>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button >
+    <ion-fab-button size="small" class="nav-but">
       <ion-icon name="ellipsis-vertical"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">

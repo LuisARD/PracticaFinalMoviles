@@ -47,7 +47,8 @@ ion-item {
 
 .forgotPassword {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    padding-top: 5px;
     a{
         font-weight: 400;
         font-size: 0.8rem;
@@ -55,3 +56,9 @@ ion-item {
 
     }
 }
+
+.ing-button {
+    display: flex;
+  justify-content: center;
+}
+
