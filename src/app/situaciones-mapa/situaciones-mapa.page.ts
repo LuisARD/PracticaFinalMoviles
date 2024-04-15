@@ -10,7 +10,6 @@ import * as L from 'leaflet';
 export class SituacionesMapaPage implements OnInit {
   map!: L.Map;
   situaciones: any;
-  filteredItems: any = [];
 
   constructor(private apiService: ApiService) { }
 
@@ -21,8 +20,6 @@ export class SituacionesMapaPage implements OnInit {
   getDatosMapa(){
     this.apiService.getMiSituaciones().subscribe((res) => {
       this.situaciones = res.datos;
-      this.filteredItems = [...this.situaciones];
-      console.log(this.situaciones);
           this.loadMap();
     },
     (error) => {
@@ -57,9 +54,9 @@ export class SituacionesMapaPage implements OnInit {
       const defaultIcon = L.icon(defaultIconOptions);
 
       // Add markers using the default icon
-      this.situaciones.forEach((situaciones: { lat: string; lng: string;}) => {
-        const marker = L.marker([parseFloat(situaciones.lng), parseFloat(situaciones.lat)], { icon: defaultIcon }).addTo(this.map);
-        marker.openPopup();
+      this.situaciones.forEach((situaciones: { latitud: string; longitud: string; titulo: string; voluntario: string;}) => {
+        const marker = L.marker([parseFloat(situaciones.latitud), parseFloat(situaciones.longitud)], { icon: defaultIcon }).addTo(this.map);
+        marker.bindPopup(`<b>${situaciones.titulo}</b><br>${situaciones.voluntario}`).openPopup();
       });
 
     } else {
