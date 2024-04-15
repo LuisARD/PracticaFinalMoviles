@@ -86,12 +86,33 @@
           </div>
         </ion-button>
       </ion-col>
+
     <!--Funcionalidades post-login-->
       <ion-col *ngIf="hastoken" size="6">
         <ion-button href="/tabs/noticiasEsp">
           <div>
-            <ion-icon size="large" name="copy-outline"></ion-icon><br>
-            <ion-label>Noticias especificas</ion-label>
+            <ion-icon size="large" name="newspaper-outline"></ion-icon><br>
+            <ion-label>Noticias Especificas</ion-label>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col *ngIf="hastoken" size="6">
+        <ion-button href="/tabs/reportarSituacion">
+          <div>
+            <ion-icon size="large" name="calendar-outline"></ion-icon><br>
+            <ion-label>Reportar Situaciones </ion-label>
+          </div>
+        </ion-button>
+      </ion-col>
+      <ion-col *ngIf="hastoken" size="6">
+        <ion-button href="/tabs/MiSituaciones">
+          <div>
+            <ion-icon size="large" name="navigate-outline"></ion-icon><br>
+            <ion-label>Mis Situaciones</ion-label>
           </div>
         </ion-button>
       </ion-col>
@@ -99,18 +120,10 @@
 
     <ion-row>
       <ion-col *ngIf="hastoken" size="6">
-        <ion-button href="/tabs/form">
+        <ion-button href="/tabs/MapaSituaciones">
           <div>
-            <ion-icon size="large" name="calendar-outline"></ion-icon><br>
-            Situaciones
-          </div>
-        </ion-button>
-      </ion-col>
-      <ion-col *ngIf="hastoken" size="6">
-        <ion-button href="/tabs/form">
-          <div>
-            <ion-icon size="large" name="navigate-outline"></ion-icon><br>
-            <ion-label>Mapa de situaciones</ion-label>
+            <ion-icon size="large" name="map-outline"></ion-icon><br>
+            <ion-label>Mapa de Situaciones</ion-label>
           </div>
         </ion-button>
       </ion-col>

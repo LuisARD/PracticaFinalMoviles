@@ -80,7 +80,23 @@ const routes: Routes = [
   {
     path: 'medidas',
     loadChildren: () => import('./medidas/medidas.module').then( m => m.MedidasPageModule)
+  },  {
+    path: 'reportarsitua',
+    loadChildren: () => import('./reportarsitua/reportarsitua.module').then( m => m.ReportarsituaPageModule)
+  },
+  {
+    path: 'misituaciones',
+    loadChildren: () => import('./misituaciones/misituaciones.module').then( m => m.MisituacionesPageModule)
+  },
+  {
+    path: 'situaciones-mapa',
+    loadChildren: () => import('./situaciones-mapa/situaciones-mapa.module').then( m => m.SituacionesMapaPageModule)
+  },
+  {
+    path: 'cambiar-clave',
+    loadChildren: () => import('./cambiar-clave/cambiar-clave.module').then( m => m.CambiarClavePageModule)
   }
+
 ];
 
 @NgModule({

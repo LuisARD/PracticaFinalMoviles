@@ -7,7 +7,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./noticias-especificas.page.scss'],
 })
 export class NoticiasEspecificasPage implements OnInit {
-  noticias: any;
+  noticiasE: any;
 
   constructor(private apiService: ApiService) {}
 
@@ -16,7 +16,7 @@ export class NoticiasEspecificasPage implements OnInit {
     this.apiService.getNoticiasEspecificas().subscribe(
       (noticiasResponse) => {
         // Asignar las noticias recibidas a la propiedad noticias para mostrar en la interfaz
-        this.noticias = noticiasResponse.datos; // Ajusta según la estructura de la respuesta
+        this.noticiasE = noticiasResponse.datos; // Ajusta según la estructura de la respuesta
       },
       (error) => {
         console.error('Error al obtener noticias específicas:', error);
@@ -24,7 +24,4 @@ export class NoticiasEspecificasPage implements OnInit {
     );
   }
 
-  
-  ionViewWillEnter() {
-  }
 }

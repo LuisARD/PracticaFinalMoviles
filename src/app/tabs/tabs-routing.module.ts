@@ -65,6 +65,20 @@ const routes: Routes = [
         loadChildren: () => import('../noticias-especificas/noticias-especificas.module').then( m => m.NoticiasEspecificasPageModule)
       },
       {
+        path: 'reportarSituacion',
+        loadChildren: () => import('../reportarsitua/reportarsitua.module').then( m => m.ReportarsituaPageModule)
+      },
+      {
+        path: 'MiSituaciones',
+        loadChildren: () => import('../misituaciones/misituaciones.module').then( m => m.MisituacionesPageModule)
+      },
+      {
+        path: 'MapaSituaciones',
+        loadChildren: () => import('../situaciones-mapa/situaciones-mapa.module').then( m => m.SituacionesMapaPageModule)
+      },
+
+
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

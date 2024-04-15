@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button [routerLink]="['/tabs/menu']">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Cambiar Clave</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <form>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input placeholder="Contraseña Anterior" type="password" class="input" name="clave_anterior" [(ngModel)]="clave_anterior"></ion-input>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+    </ion-item>
+      <ion-item>
+        <ion-input placeholder="Nueva Contraseña " type="password" class="input" name="clave_nueva" [(ngModel)]="clave_nueva"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        </ion-item>
+      <ion-button expand="block" (click)="Cambiar()">Cambiar Clave</ion-button>
+  </div>
+ </form>
+</ion-content>
