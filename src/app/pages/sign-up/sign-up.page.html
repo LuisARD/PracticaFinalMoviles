@@ -8,16 +8,31 @@
   <form>
     <div class="ion-padding">
       <ion-item>
-        <ion-input placeholder="Usuario" class="input"></ion-input>
+        <ion-input placeholder="Cedula" class="input" name="cedula" [(ngModel)]="cedula"></ion-input>
         <ion-icon name="person-outline"></ion-icon>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Correo" class="input"></ion-input>
+        <ion-input placeholder="Nombre" class="input" name="nombre" [(ngModel)]="nombre"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Apellido" class="input" name="apellido" [(ngModel)]="apellido"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Correo" class="input" name="correo" [(ngModel)]="correo"></ion-input>
         <ion-icon name="mail-outline"></ion-icon>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Contraseña" type="password" class="input"></ion-input>
+        <ion-input placeholder="Contraseña" type="password" class="input" name="clave" [(ngModel)]="clave"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="telefono" class="input" name="telefono" [(ngModel)]="telefono"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="Clickear()">Registrar</ion-button>
       </ion-item>
       <div class="signinLink">
         <p>¿Ya eres miembro? <a style="color:#FFC33F" [routerLink]="['/login']">Inicia sesión!</a></p>

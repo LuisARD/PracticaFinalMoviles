@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'acercade',
     loadChildren: () => import('./acercade/acercade.module').then( m => m.AcercadePageModule)
   },
+  {
+    path: 'noticias-especificas',
+    loadChildren: () => import('./noticias-especificas/noticias-especificas.module').then( m => m.NoticiasEspecificasPageModule)
+  },
 
 ];
 
