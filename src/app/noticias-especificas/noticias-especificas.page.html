@@ -1,9 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>NoticiasEspecificas</ion-title>
+    <ion-button [routerLink]="['/tabs/menu']">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Noticias Especificas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<h1></h1>
+  <ion-list>
+    <ion-card *ngFor="let noticia of noticiasE">
+      <img class="card-img" [src]="noticia.foto" alt="{{ noticia.titulo }}">
+      <ion-card-header>
+        <ion-card-title>{{ noticia.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ noticia.fecha }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ noticia.contenido }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

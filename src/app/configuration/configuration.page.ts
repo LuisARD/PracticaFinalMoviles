@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-configuration',
@@ -7,10 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./configuration.page.scss'],
 })
 export class ConfigurationPage implements OnInit {
+  hastoken: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiservice: ApiService) { }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.hastoken = this.apiservice.hasToken();
   }
 
   acercade(){
@@ -19,5 +25,9 @@ export class ConfigurationPage implements OnInit {
 
   login(){
     this.router.navigate(['./login']);
+  }
+
+  cambiar(){
+    this.router.navigate(['./cambiar-clave'])
   }
 }

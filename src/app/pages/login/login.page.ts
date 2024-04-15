@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
         if(response.exito){
           // Redirigir a la página de noticias específicas u otra página después de obtener los datos
           this.router.navigate(['../tabs/menu'], { replaceUrl: true });
-          //this.router.navigate(['../tabs/noticiasEsp']);
 
           // Limpia los campos de cedula y clave después del inicio de sesión
           this.cedula = '';

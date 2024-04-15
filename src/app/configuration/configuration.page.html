@@ -18,5 +18,8 @@
     <ion-item>
       <ion-label (click)="acercade()"><ion-icon size="large" name="people-outline"></ion-icon>  Acerca de</ion-label>
     </ion-item>
+    <ion-item *ngIf="hastoken">
+      <ion-label (click)="cambiar()"><ion-icon size="large" name="people-outline"></ion-icon>  Cambiar Clave</ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>

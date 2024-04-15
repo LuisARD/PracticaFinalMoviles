@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button [routerLink]="['/tabs/menu']">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Reportar Situacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Título</ion-label>
+    <ion-input type="text" name="titulo" [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-textarea name="descripcion" [(ngModel)]="descripcion" rows="4"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Foto</ion-label>
+    <input type="file" name="foto" (change)="onFileSelected($event)" accept="image/*">
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Latitud</ion-label>
+    <ion-input type="text" name="latitud" [(ngModel)]="latitud"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Longitud</ion-label>
+    <ion-input type="text" name="longitud" [(ngModel)]="longitud"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="reportarSituacion()">Reportar</ion-button>
+</ion-content>
