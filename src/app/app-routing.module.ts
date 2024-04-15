@@ -61,7 +61,22 @@ const routes: Routes = [
     path: 'services',
     loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
   },
-
+  {
+    path: 'videos',
+    loadChildren: () => import('./videos/videos.module').then( m => m.VideosPageModule)
+  },
+  {
+    path: 'albergues',
+    loadChildren: () => import('./albergues/albergues.module').then( m => m.AlberguesPageModule)
+  },
+  {
+    path: 'alberguesMap',
+    loadChildren: () => import('./albergues-map/albergues-map.module').then( m => m.AlberguesMapPageModule)
+  },
+  {
+    path: 'medidas',
+    loadChildren: () => import('./medidas/medidas.module').then( m => m.MedidasPageModule)
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Medidas de prevencion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Medidas de prevencion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngFor="let dato of medidas">
+    <ion-img [src]="dato.foto" alt="Imagen"></ion-img>
+    <ion-card-content>
+      <ion-card-title>{{ dato.titulo }}</ion-card-title>
+      <!-- Solo muestra la descripción completa cuando mostrarDescripcionCompleta es true -->
+      <p *ngIf="mostrarDescripcionCompleta">{{ dato.descripcion }}</p>
+      <!-- Botón para cambiar el estado de mostrarDescripcionCompleta -->
+      <ion-button (click)="mostrarDescripcionCompleta = !mostrarDescripcionCompleta">
+        {{ mostrarDescripcionCompleta ? 'Ver menos' : 'Ver más' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Albergues</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Albergues</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <ion-searchbar (ionChange)="searchItems($event)"></ion-searchbar>
+
+    <ion-list>
+      <ion-item *ngFor="let item of filteredItems; let i = index">
+        <ion-label>
+          <h2>{{ item.ciudad }}</h2>
+          <p>Código: {{ item.codigo }}</p>
+          <p>Edificio: {{ item.edificio }}</p>
+          <p>Coordinador: {{ item.coordinador }}</p>
+          <p>Teléfono: {{ item.telefono }}</p>
+          <p>Capacidad: {{ item.capacidad }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
