@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar-header">
+    <ion-title>Reportar Situación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form #formulario="ngForm" (ngSubmit)="submitForm()">
+        <ion-item>
+          <ion-label position="floating">Título del evento o situación</ion-label>
+          <ion-input type="text" name="titulo" [(ngModel)]="evento.titulo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" >Descripción completa de lo ocurrido</ion-label>
+          <ion-input name="descripcion" [(ngModel)]="evento.descripcion" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="file" name="foto" (change)="onFileSelected($event)"></ion-input>
+        </ion-item>
+
+        <ion-item>  
+          <ion-label position="floating">Latitud</ion-label>
+          <ion-input type="text" name="latitud" [(ngModel)]="evento.latitud" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Longitud</ion-label>
+          <ion-input type="text" name="longitud" [(ngModel)]="evento.longitud" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" [disabled]="!formulario.valid">Enviar Reporte</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
